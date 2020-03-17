@@ -1,0 +1,4 @@
+#!/bin/sh
+
+time ./mtest.out &
+time ./mtest.out &

@@ -1,0 +1,41 @@
+#!/bin/sh
+P=`pwd`
+cd /bin/soi5
+chmem =8000 x
+
+echo "-[ std ]-------------------------------"
+./w 0
+./t
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+	./x 10 &
+	./t 
+	sleep 1
+done
+
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+	./t
+	sleep 1
+done
+
+echo "-[ worst ]-----------------------------"
+./w 1
+./t
+for i in 1 2 3 4 5 6 7 9 8 10
+do
+	./x 10 &
+	./t 
+	sleep 1
+done
+
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+	./t 
+	sleep 1
+done
+
+echo "-[ std ]-------------------------------"
+./w 0
+
+cd $P
